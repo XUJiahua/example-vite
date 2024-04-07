@@ -1,8 +1,15 @@
 # PowerSync Vite bundling test
 
+原项目：
+https://github.com/powersync-ja/powersync-js/tree/main/demos/example-vite
+
 vite 开发环境下会出现如下问题：
 Uncaught SyntaxError: The requested module '/@fs/private/tmp/example-vite/node_modules/can-ndjson-stream/can-ndjson-stream.js?v=1a11c5f8' does not provide an export named 'default' (at AbstractStreamingSyncImplementation.js?v=1a11c5f8:4:8)
 
+1. npm/yarn 环境下通过 optimizeDeps.include 解决问题。
+2. pnpm 未解决
+
+build 都是没有问题的。
 
 ## npm run dev
 npm works by using optimizeDeps.include
@@ -43,6 +50,7 @@ yarn dev
 
 在这个仓库里，在 optimizeDeps.include 中的设置都失效了（npm/yarn 中可用）
 
+有时会遇到：
 ```
 Failed to resolve dependency: uuid, present in 'optimizeDeps.include'
 Failed to resolve dependency: js-logger, present in 'optimizeDeps.include'
@@ -52,3 +60,5 @@ Failed to resolve dependency: event-iterator, present in 'optimizeDeps.include'
 ```
 
 https://github.com/vitejs/vite/issues/16293
+
+未解决 https://github.com/vitejs/vite/issues/11783
