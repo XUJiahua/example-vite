@@ -21,8 +21,8 @@ export default defineConfig({
     include: [
       "uuid",
       "js-logger",
-      "lodash/throttle",
       "can-ndjson-stream",
+      "lodash/throttle",
       "event-iterator"
     ],
   },
