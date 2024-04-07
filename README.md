@@ -35,3 +35,20 @@ yarn 与 npm 的行为是一样的
 yarn install
 yarn dev
 ```
+
+## pnpm dev (fixme)
+
+原仓库中只使用 pnpm start = pnpm build && pnpm preview , pnpm dev 都是可以的。
+但是原仓库中，即使删除了 optimizeDeps.include 也是可以运行的。
+
+在这个仓库里，在 optimizeDeps.include 中的设置都失效了（npm/yarn 中可用）
+
+```
+Failed to resolve dependency: uuid, present in 'optimizeDeps.include'
+Failed to resolve dependency: js-logger, present in 'optimizeDeps.include'
+Failed to resolve dependency: can-ndjson-stream, present in 'optimizeDeps.include'
+Failed to resolve dependency: lodash/throttle, present in 'optimizeDeps.include'
+Failed to resolve dependency: event-iterator, present in 'optimizeDeps.include'
+```
+
+https://github.com/vitejs/vite/issues/16293
